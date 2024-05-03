@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
+use App\Models\Vuelo;
 
 class ReservaController extends Controller
 {
@@ -13,15 +14,20 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        //
+        return view('reservas.index', [
+        	'reservas' => Reserva::all(),
+    	]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Vuelo $vuelo)
     {
-        //
+
+        return view('reservas.create', [
+            'vuelo' => $vuelo,
+        ]);
     }
 
     /**

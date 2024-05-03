@@ -13,5 +13,9 @@ class Reserva extends Model
     {
         return $this->belongsTo(Vuelo::class);
     }
+    public function usuario()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
